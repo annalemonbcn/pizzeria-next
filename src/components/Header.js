@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Navbar from "./Navbar";
 
 const Header = () => {
   return (
@@ -10,13 +11,7 @@ const Header = () => {
         height={175}
         priority
       />
-      <nav className="mt-4 flex justify-center items-center gap-x-3 text-xl">
-        <a href="/inicio" className="text-mainRed font-semibold">
-          inicio
-        </a>
-        <a href="/nosotros">nosotros</a>
-        <a href="/delivery">pide online</a>
-      </nav>
+      <Navbar />
     </header>
   );
 };
