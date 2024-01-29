@@ -10,3 +10,7 @@ export const formatPrice = (price) => {
   }
   return price.toFixed(2).replace(".", ",");
 };
+
+export const  convertToSnakeCase = (name) => {
+  return name.toLowerCase().replace(/\s+/g, '_');
+}
