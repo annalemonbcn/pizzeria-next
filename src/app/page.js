@@ -18,7 +18,7 @@ export default function Home() {
       </section>
       <section className="flex flex-col justify-center items-center section-info">
         <p>
-          En La Pizzeria se ha perfeccionado el arte de la masa hasta el
+          En La Mamma se ha perfeccionado el arte de la masa hasta el
           delirio. Fermentada con cariño durante 72 horas para conseguir la
           textura perfecta.
         </p>
