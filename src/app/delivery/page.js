@@ -14,7 +14,8 @@ export default function Delivery() {
       <div className="mt-4 flex gap-4 productsWrapper">
         {products.map((product) => (
           <ProductView
-            key={product.name}
+            key={product.id}
+            id={product.id}
             name={product.name}
             image={product.image}
             price={formatPrice(product.price)}

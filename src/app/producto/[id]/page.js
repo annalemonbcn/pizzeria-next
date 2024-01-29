@@ -36,13 +36,14 @@ const PizzaDetails = ({ name, ingredients, price }) => (
 
 export async function generateMetadata({ params, searchParams }, parent) {
   return {
-    title: `Pizzería La Mamma - ${params.name}`,
+    title: `Pizzería La Mamma - ${capitalize(params.id)}`,
   };
 }
 
 const ProductDetail = ({ params }) => {
+  console.log('params', params)
   const currentPizza = products.find(
-    (product) => product.name === capitalize(params.name)
+    (product) => product.id === params.id
   );
 
   if (!currentPizza) {
