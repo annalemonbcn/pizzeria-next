@@ -13,9 +13,10 @@ export const menuLinks = [
   },
 ];
 
-export const productos = [
+export const products = [
   {
     name: "Pepperoni",
+    image: "/pizzas/pepperoni.png",
     ingredients: [
       "tomate",
       "mozzarella",
@@ -27,6 +28,7 @@ export const productos = [
   },
   {
     name: "La de Cabra",
+    image: "/pizzas/cabra.png",
     ingredients: [
       "tomate",
       "mozzarella",
@@ -38,21 +40,25 @@ export const productos = [
   },
   {
     name: "Margherita",
+    image: "/pizzas/margarita.png",
     ingredients: ["tomate", "mozzarella", "albahaca"],
     price: 11.5,
   },
   {
     name: "Hawaiana",
+    image: "/pizzas/hawaiana.png",
     ingredients: ["tomate", "mozzarella", "jamón york", "piña ", "pimienta"],
     price: 13.5,
   },
   {
     name: "Cotto Funghi",
+    image: "/pizzas/cotto_funghi.png",
     ingredients: ["tomate", "mozzarella", "jamón york", "champiñones frescos"],
     price: 14.2,
   },
   {
     name: "Sicili",
+    image: "/pizzas/sicili.png",
     ingredients: [
       "tomate",
       "mozzarella",

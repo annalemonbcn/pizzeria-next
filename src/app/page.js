@@ -1,10 +1,8 @@
 import Button from "@/components/Button";
-import Header from "@/components/Header";
 import Image from "next/image";
 import { Rubik_Doodle_Shadow } from "next/font/google";
 
 const rubik = Rubik_Doodle_Shadow({ subsets: ["latin"], weight: "400" });
-
 
 export default function Home() {
   return (
