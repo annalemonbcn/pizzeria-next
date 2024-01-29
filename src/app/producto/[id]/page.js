@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { products } from "@/components/mock/data";
+import { products } from "@/mock/data";
 import { capitalize, formatPrice } from "@/func";
 import ButtonWrapper from "@/components/ButtonWrapper";
 
@@ -41,7 +41,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 const ProductDetail = ({ params }) => {
-  console.log('params', params)
   const currentPizza = products.find(
     (product) => product.id === params.id
   );

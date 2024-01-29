@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { products } from "@/components/mock/data";
+import { products } from "@/mock/data";
 import { formatPrice } from "@/func";
 
 import { useEffect, useState, useMemo } from "react";
