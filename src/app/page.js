@@ -1,7 +1,5 @@
 import Button from "@/components/Button";
 import Header from "@/components/Header";
-import { Counter } from "@/components/test/Counter";
-import { Title } from "@/components/test/Title";
 import Image from "next/image";
 
 export default function Home() {
