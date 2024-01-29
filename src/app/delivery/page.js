@@ -1,7 +1,8 @@
 import ProductView from "@/components/ProductView";
 import { products } from "@/components/mock/data";
-import { Rubik_Doodle_Shadow } from "next/font/google";
+import { formatPrice } from "@/func";
 
+import { Rubik_Doodle_Shadow } from "next/font/google";
 const rubik = Rubik_Doodle_Shadow({ subsets: ["latin"], weight: "400" });
 
 export default function Delivery() {
@@ -16,7 +17,7 @@ export default function Delivery() {
             key={product.name}
             name={product.name}
             image={product.image}
-            price={product.price}
+            price={formatPrice(product.price)}
           />
         ))}
       </div>

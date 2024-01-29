@@ -1,6 +1,5 @@
 const Button = ({ children, className = "", ...args }) => {
   const isPrimary = className.includes("primary");
-  console.log("isPrimary", isPrimary);
 
   return (
     <button
