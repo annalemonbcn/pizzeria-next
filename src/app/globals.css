@@ -4,6 +4,6 @@
 
 @layer base {
   html {
-    @apply text-white;
+    @apply text-black;
   }
 }
