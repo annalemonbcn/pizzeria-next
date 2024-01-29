@@ -1,13 +1,7 @@
-import Header from "@/components/Header";
-
 export default function Admin() {
   return (
-    <div className="container mx-auto">
-      <main className="w-full relative flex flex-col items-center justify-between py-3 px-6 bg-blue-500">
-        <section className="section-nosotros">
-          <p className="text-2xl">Aqui va la section admin</p>
-        </section>
-      </main>
-    </div>
+    <main className="w-full flex flex-col items-center mt-12">
+      <h1 className="text-2xl font-bold text-mainRed">ADMIN PANEL</h1>
+    </main>
   );
 }

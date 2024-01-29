@@ -1,5 +1,5 @@
 import ProductView from "@/components/ProductView";
-import { products } from "@/components/mock/data";
+import { products } from "@/mock/data";
 import { formatPrice } from "@/func";
 
 import { Rubik_Doodle_Shadow } from "next/font/google";

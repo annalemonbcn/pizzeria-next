@@ -1,5 +1,5 @@
 "use client";
-import { menuLinks } from "@/components/mock/data";
+import { menuLinks } from "@/mock/data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
