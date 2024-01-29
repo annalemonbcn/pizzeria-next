@@ -1,6 +1,10 @@
 import Button from "@/components/Button";
 import Header from "@/components/Header";
 import Image from "next/image";
+import { Rubik_Doodle_Shadow } from "next/font/google";
+
+const rubik = Rubik_Doodle_Shadow({ subsets: ["latin"], weight: "400" });
+
 
 export default function Home() {
   return (
@@ -9,7 +13,7 @@ export default function Home() {
       style={{ backgroundImage: "url('/pizza_01.jpg')" }}
     >
       <section className="section-first">
-        <p className="text-2xl">
+        <p className={`text-2xl ${rubik.className}`}>
           <span className="text-mainRed font-semibold">ES EL SITIO.</span>{" "}
           <span>ES LA PIZZA.</span>
         </p>
