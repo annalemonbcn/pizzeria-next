@@ -32,6 +32,8 @@ const createProduct = async (product, file) => {
   // );
 };
 
+// TODO: modifyDoc and deleteDoc
+
 const CreateForm = () => {
   const [values, setValues] = useState({
     name: "",
