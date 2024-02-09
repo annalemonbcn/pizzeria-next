@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { products } from "@/mock/data";
-import { capitalize, formatPrice } from "@/func";
+import { capitalize, formatPrice } from "@/app/utils/func";
 import ButtonWrapper from "@/components/ButtonWrapper";
 
 import { Rubik_Doodle_Shadow } from "next/font/google";
@@ -12,15 +11,15 @@ const PizzaImage = ({ src, alt }) => (
   </div>
 );
 
-const PizzaDetails = ({ name, ingredients, price }) => (
+const PizzaDetails = ({ currentPizza }) => (
   <div className="pizzaInfo">
     <h1 className={`text-3xl text-mainRed ${rubik.className}`}>
-      {name.toUpperCase()}
+      {currentPizza.name.toUpperCase()}
     </h1>
     <div className="mt-4 ingredientesWrapper">
       <p>Ingredientes:</p>
       <ul>
-        {ingredients.map((ingredient) => (
+        {currentPizza.ingredients.map((ingredient) => (
           <li key={ingredient} className="ml-4">
             - {ingredient}
           </li>
@@ -28,9 +27,10 @@ const PizzaDetails = ({ name, ingredients, price }) => (
       </ul>
     </div>
     <p className="my-4 text-xl">
-      <span className="font-bold">Precio:</span> {formatPrice(price)} €
+      <span className="font-bold">Precio:</span>{" "}
+      {formatPrice(currentPizza.price)} €
     </p>
-    <ButtonWrapper productName={name}>Añadir al carrito</ButtonWrapper>
+    <ButtonWrapper item={currentPizza}>Añadir al carrito</ButtonWrapper>
   </div>
 );
 
@@ -40,22 +40,25 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
-const ProductDetail = ({ params }) => {
-  const currentPizza = products.find(
-    (product) => product.id === params.id
-  );
+const ProductDetail = async ({ params }) => {
+  const { id } = params;
 
-  if (!currentPizza) {
-    return <div>Pizza no encontrada</div>;
-  }
-
-  const { name, image, ingredients, price } = currentPizza;
+  const currentPizza = await fetch(`http://localhost:3000/api/product/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      data.id = id;
+      return data;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw new Error(`Error al obtener los datos del producto ${id}`);
+    });
 
   return (
     <main className="w-full flex flex-col items-center mt-12">
       <div className="flex justify-between pizzaWraper">
-        <PizzaImage src={image} alt={name} />
-        <PizzaDetails name={name} ingredients={ingredients} price={price} />
+        <PizzaImage src={currentPizza.image} alt={currentPizza.name} />
+        <PizzaDetails currentPizza={currentPizza} />
       </div>
     </main>
   );

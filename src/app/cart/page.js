@@ -1,52 +1,53 @@
 "use client";
 import Image from "next/image";
-import { products } from "@/mock/data";
-import { formatPrice } from "@/func";
+import { formatPrice } from "@/app/utils/func";
 
 import { useEffect, useState, useMemo } from "react";
+
+import { useCartContext } from "@/components/context/CartContext";
 
 import { Rubik_Doodle_Shadow } from "next/font/google";
 const rubik = Rubik_Doodle_Shadow({ subsets: ["latin"], weight: "400" });
 
 const Cart = () => {
+  const { cart } = useCartContext();
+
   const [totalCartPrice, setTotalPrice] = useState(0);
 
-  const pizzasInCart = useMemo(() => [products[0], products[1]], []);
-
-  const sumPricesInCart = (pizzasInCart) => {
-    if (pizzasInCart.length === 0) {
+  const sumPricesInCart = () => {
+    if (cart.length === 0) {
       return 0;
     }
 
-    const totalPrice = pizzasInCart.reduce((accumulator, pizza) => {
-      return accumulator + pizza.price;
+    const totalPrice = cart.reduce((accumulator, pizza) => {
+      return accumulator + pizza.item.price;
     }, 0);
 
     return totalPrice;
   };
 
   useEffect(() => {
-    setTotalPrice(sumPricesInCart(pizzasInCart));
-  }, [pizzasInCart]);
+    setTotalPrice(sumPricesInCart());
+  }, [cart]);
 
   return (
     <main className="w-full flex flex-col items-center mt-12">
       <h1 className={`text-2xl ${rubik.className}`}>CARRITO</h1>
       <div className="mt-4 carritoWrapper">
-        {pizzasInCart.map((pizza) => (
+        {cart.map((pizza) => (
           <div
-            key={pizza.name}
+            key={pizza.item.name}
             className="flex items-center gap-x-6 gap-y-3 carritoElement"
           >
             <Image
-              src={pizza.image}
-              alt={`pizza ${pizza.name}`}
+              src={pizza.item.image}
+              alt={`pizza ${pizza.item.name}`}
               width={175}
               height={175}
             />
             <div className="flex flex-col carritoElement-info">
-              <p>{pizza.name}</p>
-              <p>{formatPrice(pizza.price)} €</p>
+              <p>{pizza.item.name}</p>
+              <p>{formatPrice(pizza.item.price)} €</p>
             </div>
           </div>
         ))}
