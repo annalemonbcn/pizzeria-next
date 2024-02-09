@@ -26,7 +26,7 @@ export const products = [
       "cilantro",
     ],
     price: 15.5,
-    category: "pizza_rossa"
+    category: ["pizza_rossa"],
   },
   {
     id: "la_de_cabra",
@@ -40,7 +40,7 @@ export const products = [
       "queso de cabra",
     ],
     price: 15.5,
-    category: "pizza_bianca"
+    category: ["pizza_bianca"],
   },
   {
     id: "margherita",
@@ -48,7 +48,7 @@ export const products = [
     image: "/pizzas/margarita.png",
     ingredients: ["tomate", "mozzarella", "albahaca"],
     price: 11.5,
-    category: "pizza_rossa"
+    category: ["pizza_rossa"],
   },
   {
     id: "hawaiana",
@@ -56,7 +56,7 @@ export const products = [
     image: "/pizzas/hawaiana.png",
     ingredients: ["tomate", "mozzarella", "jamón york", "piña ", "pimienta"],
     price: 13.5,
-    category: "pizza_bianca"
+    category: ["pizza_bianca"],
   },
   {
     id: "cotto_funghi",
@@ -64,7 +64,7 @@ export const products = [
     image: "/pizzas/cotto_funghi.png",
     ingredients: ["tomate", "mozzarella", "jamón york", "champiñones frescos"],
     price: 14.2,
-    category: "pizza_rossa"
+    category: ["pizza_rossa"],
   },
   {
     id: "sicili",
@@ -79,6 +79,6 @@ export const products = [
       "olivas negras",
     ],
     price: 14.2,
-    category: "pizza_bianca"
+    category: ["pizza_bianca"],
   },
 ];
