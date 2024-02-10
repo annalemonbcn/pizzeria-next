@@ -2,7 +2,11 @@
 import { useState } from "react";
 import Button from "../Button";
 
+import { useAuthContext } from "../context/AuthContext";
+
 const LoginForm = () => {
+  const { registerUser, loginUser } = useAuthContext();
+
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -17,7 +21,6 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("values", values);
   };
 
   return (
@@ -45,7 +48,12 @@ const LoginForm = () => {
             className="p-2 rounded border border-blue-100 block my-4"
           />
         </div>
-        <Button className="primary">Login</Button>
+        <Button className="primary" onClick={() => loginUser(values)}>
+          Login
+        </Button>
+        <Button className="primary" onClick={() => registerUser(values)}>
+          Register
+        </Button>
       </form>
     </div>
   );
