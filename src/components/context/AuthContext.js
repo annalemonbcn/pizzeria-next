@@ -1,4 +1,6 @@
 "use client";
+import { toast } from "sonner";
+
 import { createContext, useContext, useState } from "react";
 
 import { auth } from "@/firebase/config";
@@ -23,6 +25,7 @@ export const AuthProvider = ({ children }) => {
       values.email,
       values.password
     );
+
     const userFromFirestore = userCredential.user;
 
     setUser({
@@ -33,19 +36,38 @@ export const AuthProvider = ({ children }) => {
   };
 
   const loginUser = async (values) => {
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      values.email,
-      values.password
-    );
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      );
 
-    const userFromFirestore = userCredential.user;
+      const userFromFirestore = userCredential.user;
 
-    setUser({
-      logged: true,
-      email: userFromFirestore.email,
-      uid: userFromFirestore.uid,
-    });
+      toast.success("Welcome :)");
+
+      setTimeout(() => {
+        setUser({
+          logged: true,
+          email: userFromFirestore.email,
+          uid: userFromFirestore.uid,
+        });
+      }, 1000);
+    } catch (error) {
+      // TODO: implementar errores
+      console.error("Error while login", error);
+      let errorMessage = "Error while login";
+
+      if (error.code === "auth/invalid-credential") {
+        errorMessage = "Invalid credentials";
+      }
+      // sentence.includes("invalid-credential")
+      //   ? console.error("Error while login", error);
+      //   : 'is not'
+      // console.error("Error while login", error);
+      toast.error(errorMessage);
+    }
   };
 
   const authProviderValue = { user, registerUser, loginUser };

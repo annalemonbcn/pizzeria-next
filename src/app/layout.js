@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import { CartProvider } from "@/components/context/CartContext";
 import { AuthProvider } from "@/components/context/AuthContext";
 
+import { Toaster, toast } from "sonner";
+
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });
 
 export default function RootLayout({ children }) {
@@ -14,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className={roboto.className}>
         <AuthProvider>
           <CartProvider>
+            <Toaster richColors position="top-right" />
             <Header />
             {children}
             <Footer />
