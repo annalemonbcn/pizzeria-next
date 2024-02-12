@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { capitalize, formatPrice } from "@/app/utils/func";
 import ButtonWrapper from "@/components/ButtonWrapper";
+import { getSingleProduct } from "@/app/utils/api";
+import { toast } from "sonner";
 
 import { Rubik_Doodle_Shadow } from "next/font/google";
 const rubik = Rubik_Doodle_Shadow({ subsets: ["latin"], weight: "400" });
@@ -43,22 +45,25 @@ export async function generateMetadata({ params, searchParams }, parent) {
 const ProductDetail = async ({ params }) => {
   const { id } = params;
 
-  const currentPizza = await fetch(`http://localhost:3000/api/product/${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      data.id = id;
-      return data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw new Error(`Error al obtener los datos del producto ${id}`);
-    });
+  let currentPizza;
+
+  try {
+    currentPizza = await getSingleProduct(id);
+    currentPizza.id = id;
+  } catch (error) {
+    console.error(error);
+    toast.error(error);
+  }
 
   return (
     <main className="w-full flex flex-col items-center mt-12">
       <div className="flex justify-between pizzaWraper">
-        <PizzaImage src={currentPizza.image} alt={currentPizza.name} />
-        <PizzaDetails currentPizza={currentPizza} />
+        {currentPizza && (
+          <>
+            <PizzaImage src={currentPizza.image} alt={currentPizza.name} />
+            <PizzaDetails currentPizza={currentPizza} />
+          </>
+        )}
       </div>
     </main>
   );

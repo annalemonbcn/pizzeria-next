@@ -10,7 +10,7 @@ export async function GET(request, { params }) {
   const q =
     categoria === "todos"
       ? productosRef
-      : query(productosRef, where("category", "==", categoria));
+      : query(productosRef, where("category", "array-contains", categoria));
 
   const querySnapshot = await getDocs(q);
   const docs = querySnapshot.docs.map((doc) => {
