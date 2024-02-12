@@ -12,20 +12,22 @@ export default function Home() {
     >
       <section className="section-first">
         <p className={`text-2xl ${rubik.className}`}>
-          <span className="text-mainRed font-semibold">ES EL SITIO.</span>{" "}
-          <span>ES LA PIZZA.</span>
+          <span className="text-mainRed font-semibold">
+            IT&apos;S THE PLACE.
+          </span>{" "}
+          <span>IT&apos;S THE PIZZA.</span>
         </p>
       </section>
       <section className="flex flex-col justify-center items-center section-info">
         <p>
-          En La Mamma se ha perfeccionado el arte de la masa hasta el
-          delirio. Fermentada con cariño durante 72 horas para conseguir la
-          textura perfecta.
+          At La Pizzeria Mamma the art of dough has been perfected to the point
+          of delirium. Lovingly fermented for 72 hours to achieve the perfect
+          texture.
         </p>
-        <div className="flex gap-x-6 buttonWrapper">
-          <Button className="primary">Pide online</Button>
-          <Button className="primary">Nosotros</Button>
-        </div>
+        {/* <div className="flex gap-x-6 buttonWrapper">
+          <Button className="primary">Order  online</Button>
+          <Button className="primary">Us</Button>
+        </div> */}
       </section>
       {/* <Image 
         src={"/pizza_01.jpg"}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { capitalize, formatPrice } from "@/app/utils/func";
-import ButtonWrapper from "@/components/ButtonWrapper";
+import ButtonAddToCartWrapper from "@/components/ButtonAddToCartWrapper";
 import { getSingleProduct } from "@/app/utils/api";
 import { toast } from "sonner";
 
@@ -19,7 +19,7 @@ const PizzaDetails = ({ currentPizza }) => (
       {currentPizza.name.toUpperCase()}
     </h1>
     <div className="mt-4 ingredientesWrapper">
-      <p>Ingredientes:</p>
+      <p>Ingredients:</p>
       <ul>
         {currentPizza.ingredients.map((ingredient) => (
           <li key={ingredient} className="ml-4">
@@ -29,17 +29,17 @@ const PizzaDetails = ({ currentPizza }) => (
       </ul>
     </div>
     <p className="my-4 text-xl">
-      <span className="font-bold">Precio:</span>{" "}
+      <span className="font-bold">Price:</span>{" "}
       {formatPrice(currentPizza.price)} €
     </p>
-    <ButtonWrapper item={currentPizza}>Añadir al carrito</ButtonWrapper>
+    <ButtonAddToCartWrapper item={currentPizza}>Add to cart</ButtonAddToCartWrapper>
   </div>
 );
 
 // TODO: generate metada for every page
 export async function generateMetadata({ params, searchParams }, parent) {
   return {
-    title: `Pizzería La Mamma - ${capitalize(params.id)}`,
+    title: `La Mamma Pizza - ${capitalize(params.id)}`,
   };
 }
 

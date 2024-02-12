@@ -14,14 +14,14 @@ const createProduct = async (product, file) => {
 
   const idRef = stringToSnakeCase(product.name);
 
-  // 1. Subir imagen a Storage
+  // 1. Upload image to Storage
   const storageRef = ref(storage, idRef);
   const fileSnapshot = await uploadBytes(storageRef, file);
 
-  // 2. Recuperar la URL de la imagen subida
+  // 2. Get the  URL of the uploaded image
   const fileURL = await getDownloadURL(fileSnapshot.ref);
 
-  // 3. Crear el producto en Firestore
+  // 3. Create the product in Firestore
   const docRef = doc(db, "productos", idRef);
   await setDoc(docRef, {
     ...product,
@@ -64,7 +64,6 @@ const CreateForm = () => {
       ingredients: stringToArray(values.ingredients),
       category: stringToArray(values.category),
     };
-    // console.log('newProduct', newProduct)
     createProduct(newProduct, file);
   };
 
