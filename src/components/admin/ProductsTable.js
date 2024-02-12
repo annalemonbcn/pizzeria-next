@@ -1,13 +1,26 @@
 import Image from "next/image";
+import { getAllProducts } from "@/app/utils/func";
+import { toast } from "sonner";
 
 const ProductsTableTitle = () => {
-
-  const titles = ["Image", "Name", "Ingredients", "Price", "Category list", "Actions"]
+  const titles = [
+    "Image",
+    "Name",
+    "Ingredients",
+    "Price",
+    "Category list",
+    "Actions",
+  ];
 
   return (
     <div className="flex font-bold text-center adminPanel-title">
       {titles.map((title, index) => (
-        <div className={`w-1/6 adminPanel-title-${title.toLowerCase()}`} key={index}>{title}</div>
+        <div
+          className={`w-1/6 adminPanel-title-${title.toLowerCase()}`}
+          key={index}
+        >
+          {title}
+        </div>
       ))}
     </div>
   );
@@ -61,12 +74,13 @@ const ProductsTableBody = ({ itemsFromFirestore }) => {
 
 const ProductsTable = async () => {
   // TODO: optimizar peticiones GET
-  const itemsFromFirestore = await fetch(
-    `http://localhost:3000/api/productos/todos`,
-    {
-      cache: "no-store",
-    }
-  ).then((res) => res.json());
+  let itemsFromFirestore;
+  try {
+    itemsFromFirestore = await getAllProducts();
+  } catch (error) {
+    console.error(error);
+    toast.error(error);
+  }
 
   return (
     <div className="w-full mt-4 adminPanelWrapper">
