@@ -3,14 +3,14 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/firebase/config";
 
 export async function GET(request, { params }) {
-  const { categoria } = params;
+  const { category } = params;
 
-  const productosRef = collection(db, "productos");
+  const productsRef = collection(db, "productos");
 
   const q =
-    categoria === "todos"
-      ? productosRef
-      : query(productosRef, where("category", "array-contains", categoria));
+  category === "all"
+      ? productsRef
+      : query(productsRef, where("category", "array-contains", category));
 
   const querySnapshot = await getDocs(q);
   const docs = querySnapshot.docs.map((doc) => {

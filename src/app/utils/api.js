@@ -1,5 +1,5 @@
-export const getAllProducts = async (categoria = "todos") => {
-  const res = await fetch(`http://localhost:3000/api/productos/${categoria}`, {
+export const getAllProducts = async (category = "all") => {
+  const res = await fetch(`http://localhost:3000/api/products/${category}`, {
     cache: "no-store",
   });
 
@@ -12,12 +12,12 @@ export const getAllProducts = async (categoria = "todos") => {
 
 export const getSingleProduct = async (id) => {
   const res = await fetch(`http://localhost:3000/api/product/${id}`, {
-    cache: "no-store"
-  })
+    cache: "no-store",
+  });
 
-  if(!res.ok){
-    throw new Error("Failed to fetch single pizza")
+  if (!res.ok) {
+    throw new Error("Failed to fetch single pizza");
   }
 
   return res.json();
-}
+};

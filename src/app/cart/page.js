@@ -19,8 +19,8 @@ const Cart = () => {
       return 0;
     }
 
-    const totalPrice = cart.reduce((accumulator, pizza) => {
-      return accumulator + pizza.item.price;
+    const totalPrice = cart.reduce((acc, pizza) => {
+      return acc + pizza.item.price;
     }, 0);
 
     return totalPrice;
@@ -32,12 +32,12 @@ const Cart = () => {
 
   return (
     <main className="w-full flex flex-col items-center mt-12">
-      <h1 className={`text-2xl ${rubik.className}`}>CARRITO</h1>
-      <div className="mt-4 carritoWrapper">
+      <h1 className={`text-2xl ${rubik.className}`}>CART</h1>
+      <div className="mt-4 cartWrapper">
         {cart.map((pizza) => (
           <div
             key={pizza.item.name}
-            className="flex items-center gap-x-6 gap-y-3 carritoElement"
+            className="flex items-center gap-x-6 gap-y-3 cartElement"
           >
             <Image
               src={pizza.item.image}
@@ -45,7 +45,7 @@ const Cart = () => {
               width={175}
               height={175}
             />
-            <div className="flex flex-col carritoElement-info">
+            <div className="flex flex-col cartElement-info">
               <p>{pizza.item.name}</p>
               <p>{formatPrice(pizza.item.price)} €</p>
             </div>

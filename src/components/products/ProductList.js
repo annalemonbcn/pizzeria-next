@@ -1,13 +1,13 @@
-import ProductView from "@/components/productos/ProductView";
+import ProductView from "@/components/products/ProductView";
 import { formatPrice } from "@/app/utils/func";
 import { toast } from "sonner";
 import { getAllProducts } from "@/app/utils/api";
 
-const ProductsList = async ({ categoria }) => {
+const ProductsList = async ({ category }) => {
   let items;
 
   try {
-    items = await getAllProducts(categoria);
+    items = await getAllProducts(category);
   } catch (error) {
     console.error(error);
     toast.error(error);

@@ -1,3 +1,4 @@
+// TODO: encriptar vars
 // import dotenv from "dotenv";
 
 // dotenv.config();
