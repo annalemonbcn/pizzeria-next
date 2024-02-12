@@ -36,6 +36,7 @@ const PizzaDetails = ({ currentPizza }) => (
   </div>
 );
 
+// TODO: generate metada for every page
 export async function generateMetadata({ params, searchParams }, parent) {
   return {
     title: `Pizzería La Mamma - ${capitalize(params.id)}`,
