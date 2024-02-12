@@ -20,19 +20,26 @@ export const AuthProvider = ({ children }) => {
   });
 
   const registerUser = async (values) => {
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      values.email,
-      values.password
-    );
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      );
 
-    const userFromFirestore = userCredential.user;
+      const userFromFirestore = userCredential.user;
+      if (userFromFirestore) toast.success("Register completed :)");
 
-    setUser({
-      logged: true,
-      email: userFromFirestore.email,
-      uid: userFromFirestore.uid,
-    });
+      setTimeout(() => {
+        setUser({
+          logged: true,
+          email: userFromFirestore.email,
+          uid: userFromFirestore.uid,
+        });
+      }, 1000);
+    } catch (error) {
+      handleAuthError(error, "register");
+    }
   };
 
   const loginUser = async (values) => {
@@ -44,8 +51,7 @@ export const AuthProvider = ({ children }) => {
       );
 
       const userFromFirestore = userCredential.user;
-
-      toast.success("Welcome :)");
+      if (userFromFirestore) toast.success("Welcome :)");
 
       setTimeout(() => {
         setUser({
@@ -55,21 +61,34 @@ export const AuthProvider = ({ children }) => {
         });
       }, 1000);
     } catch (error) {
-      // TODO: implementar errores
-      console.error("Error while login", error);
-      let errorMessage = "Error while login";
-
-      if (error.code === "auth/invalid-credential") {
-        errorMessage = "Invalid credentials";
-      }
-      // sentence.includes("invalid-credential")
-      //   ? console.error("Error while login", error);
-      //   : 'is not'
-      // console.error("Error while login", error);
-      toast.error(errorMessage);
+      handleAuthError(error, "login");
     }
   };
 
+  const handleAuthError = (error, action) => {
+    console.error(`Error while ${action}`, error);
+    let errorMessage = `Error while ${action}`;
+  
+    switch (error.code) {
+      case "auth/invalid-email":
+        errorMessage = "Invalid email";
+        break;
+      case "auth/missing-password":
+        errorMessage = "Password can't be empty";
+        break;
+      case "auth/weak-password":
+        errorMessage = "Password should be at least 6 characters";
+        break;
+      case "auth/invalid-credential":
+        errorMessage = "Invalid credentials";
+        break;
+      default:
+        errorMessage = "An unexpected error occurred";
+    }
+  
+    toast.error(errorMessage);
+  };
+  
   const authProviderValue = { user, registerUser, loginUser };
 
   return (

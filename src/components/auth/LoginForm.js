@@ -32,7 +32,6 @@ const LoginForm = () => {
             type="email"
             value={values.email}
             name="email"
-            required
             onChange={handleChange}
             className="p-2 rounded border border-blue-100 block my-4"
           />
@@ -43,7 +42,6 @@ const LoginForm = () => {
             type="password"
             value={values.password}
             name="password"
-            required
             onChange={handleChange}
             className="p-2 rounded border border-blue-100 block my-4"
           />
