@@ -11,16 +11,20 @@ const rubik = Rubik_Doodle_Shadow({ subsets: ["latin"], weight: "400" });
 
 const Cart = () => {
   const { cart } = useCartContext();
+  console.log("cart", cart);
 
   const [totalCartPrice, setTotalPrice] = useState(0);
 
+  // TODO: add DELETE, EDIT cart
+
+  
   const sumPricesInCart = () => {
     if (cart.length === 0) {
       return 0;
     }
 
     const totalPrice = cart.reduce((acc, pizza) => {
-      return acc + pizza.item.price;
+      return acc + pizza.item.price * pizza.qty;
     }, 0);
 
     return totalPrice;
@@ -48,11 +52,12 @@ const Cart = () => {
             <div className="flex flex-col cartElement-info">
               <p>{pizza.item.name}</p>
               <p>{formatPrice(pizza.item.price)} €</p>
+              <p>Quantity: {pizza.qty}</p>
             </div>
           </div>
         ))}
         <p className="mt-4 font-bold text-xl">
-          Total cart price: {totalCartPrice} €{" "}
+          Total cart price: {formatPrice(totalCartPrice)} €{" "}
         </p>
       </div>
     </main>
