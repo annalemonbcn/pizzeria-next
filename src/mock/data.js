@@ -13,6 +13,7 @@ export const menuLinks = [
   },
 ];
 
+// TODO: delete
 export const products = [
   {
     id: "pepperoni",
@@ -54,7 +55,7 @@ export const products = [
     id: "hawaiana",
     name: "Hawaiana",
     image: "/pizzas/hawaiana.png",
-    ingredients: ["tomate", "mozzarella", "jamón york", "piña ", "pimienta"],
+    ingredients: ["tomate", "mozzarella", "jamón york", "piña", "pimienta"],
     price: 13.5,
     category: ["pizza_bianca"],
   },

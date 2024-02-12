@@ -2,8 +2,11 @@
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import { CartProvider } from "@/components/context/CartContext";
 import Footer from "@/components/Footer";
+import { CartProvider } from "@/components/context/CartContext";
+import { AuthProvider } from "@/components/context/AuthContext";
+
+import { Toaster, toast } from "sonner";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });
 
@@ -11,11 +14,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <CartProvider>
-          <Header />
-          {children}
-          <Footer />
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Toaster richColors position="top-right" />
+            <Header />
+            {children}
+            <Footer />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );
