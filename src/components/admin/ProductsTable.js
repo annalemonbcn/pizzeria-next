@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getAllProducts } from "@/app/utils/func";
+import { getAllProducts } from "@/app/utils/api";
 import { toast } from "sonner";
 
 const ProductsTableTitle = () => {
