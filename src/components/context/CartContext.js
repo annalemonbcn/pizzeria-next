@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
 
@@ -7,6 +7,16 @@ export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [cartLength, setCartLength] = useState(0);
+
+  // Update CartLength everytime cart is modified
+  useEffect(() => {
+    const updateCartLength = () => {
+      const newCartLength = cart.reduce((acc, cartItem) => acc + cartItem.qty, 0);
+      setCartLength(newCartLength)
+    };
+    updateCartLength();
+  }, [cart]);
 
   const addToCart = (item, qty) => {
     const productIndex = cart.findIndex(
@@ -37,6 +47,7 @@ export const CartProvider = ({ children }) => {
 
   const cartProviderValue = {
     cart,
+    cartLength,
     addToCart,
     resetCart,
   };

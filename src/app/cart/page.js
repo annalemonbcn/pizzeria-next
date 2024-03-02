@@ -11,7 +11,6 @@ const rubik = Rubik_Doodle_Shadow({ subsets: ["latin"], weight: "400" });
 
 const Cart = () => {
   const { cart } = useCartContext();
-  console.log("cart", cart);
 
   const [totalCartPrice, setTotalPrice] = useState(0);
 

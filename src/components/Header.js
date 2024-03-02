@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Navbar from "./Navbar";
+import CartSvg from "./svg/Cart";
+import CartWidget from "./cart/CartWidget";
 
 const Header = () => {
   return (
-    <header className="flex flex-col justify-center items-center">
+    <header className="relative flex flex-col justify-center items-center">
       <Image
         src={"/logo.png"}
         alt="pizzeria logo"
@@ -12,6 +14,7 @@ const Header = () => {
         priority
       />
       <Navbar />
+      <CartWidget />
     </header>
   );
 };
