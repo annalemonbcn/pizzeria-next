@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Navbar from "./Navbar";
-import CartSvg from "./svg/Cart";
+import CartSvg from "./svg/CartSvg";
 import CartWidget from "./cart/CartWidget";
 
 const Header = () => {

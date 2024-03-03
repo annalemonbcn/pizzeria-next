@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import CartSvg from "../svg/Cart";
+import CartSvg from "../svg/CartSvg";
 import { useCartContext } from "../context/CartContext";
 
 const CartWidget = () => {
