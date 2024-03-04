@@ -7,13 +7,15 @@ import { useEffect, useState, useMemo } from "react";
 import { useCartContext } from "@/components/context/CartContext";
 
 import { Rubik_Doodle_Shadow } from "next/font/google";
-import CheckoutTable from "../../components/cart/CheckoutTable";
+import CheckoutTable from "../../components/cart/checkout/CheckoutTable";
+import Subtotal from "@/components/cart/subtotal/Subtotal";
 const rubik = Rubik_Doodle_Shadow({ subsets: ["latin"], weight: "400" });
 
 const Cart = () => {
-  const [totalCartPrice, setTotalPrice] = useState(0);
+  const [subtotalCartPrice, setsubtTotalPrice] = useState(0);
   const { cart } = useCartContext();
 
+  // TODO: mover a cartContext ?
   const sumPricesInCart = () => {
     if (cart.length === 0) {
       return 0;
@@ -27,7 +29,7 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    setTotalPrice(sumPricesInCart());
+    setsubtTotalPrice(sumPricesInCart());
   }, [cart]);
 
   if (cart.length === 0) return <p>Your cart is empty</p>;
@@ -36,11 +38,7 @@ const Cart = () => {
     <main className="w-full flex flex-col items-start mt-12">
       <h1 className={`self-center text-2xl ${rubik.className}`}>CART</h1>
       <CheckoutTable />
-      <div>
-        <p className="mt-4 font-bold text-xl">
-          Total cart price: {formatPrice(totalCartPrice)} €{" "}
-        </p>
-      </div>
+      <Subtotal subtotalCartPrice={subtotalCartPrice} />
     </main>
   );
 };
