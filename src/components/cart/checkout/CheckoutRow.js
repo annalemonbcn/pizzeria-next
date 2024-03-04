@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Counter from "./counter/Counter";
-import TrashSvg from "../svg/TrashSvg";
+import Counter from "../counter/Counter";
+import TrashSvg from "../../svg/TrashSvg";
 
-import { useCartContext } from "../context/CartContext";
+import { useCartContext } from "../../context/CartContext";
 
 import { formatPrice } from "@/app/utils/func";
 
