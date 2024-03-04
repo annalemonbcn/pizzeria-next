@@ -8,6 +8,7 @@ const CartSvg = (props) => (
       strokeWidth="1.5"
       stroke="currentColor"
       className="file: h-6 w-6 cursor-pointer"
+      {...props}
     >
       <path
         strokeLinecap="round"

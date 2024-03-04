@@ -1,12 +1,15 @@
 "use client";
 import { toast } from "sonner";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
-import { auth } from "@/firebase/config";
+import { auth, provider } from "@/firebase/config";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 
 const AuthContext = createContext();
@@ -21,22 +24,7 @@ export const AuthProvider = ({ children }) => {
 
   const registerUser = async (values) => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        values.email,
-        values.password
-      );
-
-      const userFromFirestore = userCredential.user;
-      if (userFromFirestore) toast.success("Register completed :)");
-
-      setTimeout(() => {
-        setUser({
-          logged: true,
-          email: userFromFirestore.email,
-          uid: userFromFirestore.uid,
-        });
-      }, 1000);
+      await createUserWithEmailAndPassword(auth, values.email, values.password);
     } catch (error) {
       handleAuthError(error, "register");
     }
@@ -44,31 +32,42 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (values) => {
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        values.email,
-        values.password
-      );
-
-      const userFromFirestore = userCredential.user;
-      if (userFromFirestore) toast.success("Welcome :)");
-
-      setTimeout(() => {
-        setUser({
-          logged: true,
-          email: userFromFirestore.email,
-          uid: userFromFirestore.uid,
-        });
-      }, 1000);
+      await signInWithEmailAndPassword(auth, values.email, values.password);
     } catch (error) {
       handleAuthError(error, "login");
     }
   };
 
+  const logout = async () => {
+    await signOut(auth);
+  };
+
+  const googleLogin = async () => {
+    await signInWithPopup(auth, provider);
+  };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser({
+          logged: true,
+          email: user.email,
+          uid: user.uid,
+        });
+      } else {
+        setUser({
+          logged: false,
+          email: null,
+          uid: null,
+        });
+      }
+    });
+  }, []);
+
   const handleAuthError = (error, action) => {
     console.error(`Error while ${action}`, error);
     let errorMessage = `Error while ${action}`;
-  
+
     switch (error.code) {
       case "auth/invalid-email":
         errorMessage = "Invalid email";
@@ -82,14 +81,23 @@ export const AuthProvider = ({ children }) => {
       case "auth/invalid-credential":
         errorMessage = "Invalid credentials";
         break;
+      case "auth/email-already-in-use":
+        errorMessage = "This email is already registered in the database";
+        break;
       default:
         errorMessage = "An unexpected error occurred";
     }
-  
+
     toast.error(errorMessage);
   };
-  
-  const authProviderValue = { user, registerUser, loginUser };
+
+  const authProviderValue = {
+    user,
+    registerUser,
+    loginUser,
+    logout,
+    googleLogin,
+  };
 
   return (
     <AuthContext.Provider value={authProviderValue}>

@@ -10,19 +10,19 @@ import { Toaster, toast } from "sonner";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });
 
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={roboto.className}>
-        <AuthProvider>
-          <CartProvider>
-            <Toaster richColors position="top-right" />
-            <Header />
-            {children}
-            <Footer />
-          </CartProvider>
-        </AuthProvider>
-      </body>
-    </html>
-  );
-}
+const RootLayout = ({ children }) => (
+  <html lang="en">
+    <body className={roboto.className}>
+      <AuthProvider>
+        <CartProvider>
+          <Toaster richColors position="top-right" />
+          <Header />
+          {children}
+          <Footer />
+        </CartProvider>
+      </AuthProvider>
+    </body>
+  </html>
+);
+
+export default RootLayout
