@@ -3,10 +3,11 @@ import { toast } from "sonner";
 
 import { createContext, useContext, useState, useEffect } from "react";
 
-import { auth } from "@/firebase/config";
+import { auth, provider } from "@/firebase/config";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
@@ -41,10 +42,12 @@ export const AuthProvider = ({ children }) => {
     await signOut(auth);
   };
 
+  const googleLogin = async () => {
+    await signInWithPopup(auth, provider);
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log("user", user);
-
       if (user) {
         setUser({
           logged: true,
@@ -78,6 +81,9 @@ export const AuthProvider = ({ children }) => {
       case "auth/invalid-credential":
         errorMessage = "Invalid credentials";
         break;
+      case "auth/email-already-in-use":
+        errorMessage = "This email is already registered in the database";
+        break;
       default:
         errorMessage = "An unexpected error occurred";
     }
@@ -85,7 +91,13 @@ export const AuthProvider = ({ children }) => {
     toast.error(errorMessage);
   };
 
-  const authProviderValue = { user, registerUser, loginUser, logout };
+  const authProviderValue = {
+    user,
+    registerUser,
+    loginUser,
+    logout,
+    googleLogin,
+  };
 
   return (
     <AuthContext.Provider value={authProviderValue}>

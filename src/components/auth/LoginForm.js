@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
 import Button from "../Button";
+import GoogleButton from "react-google-button";
 
 import { useAuthContext } from "../context/AuthContext";
 
 const LoginForm = () => {
-  const { registerUser, loginUser } = useAuthContext();
+  const { registerUser, loginUser, googleLogin } = useAuthContext();
 
   const [values, setValues] = useState({
     email: "",
@@ -46,12 +47,17 @@ const LoginForm = () => {
             className="p-2 rounded border border-blue-100 block my-4"
           />
         </div>
-        <Button className="primary" onClick={() => loginUser(values)}>
-          Login
-        </Button>
-        <Button className="primary" onClick={() => registerUser(values)}>
-          Register
-        </Button>
+        <div className="actionButtons">
+          <div className="mb-6 flex items-center justify-center gap-4">
+            <Button className="primary" onClick={() => loginUser(values)}>
+              Login
+            </Button>
+            <Button className="primary" onClick={() => registerUser(values)}>
+              Register
+            </Button>
+          </div>
+          <GoogleButton onClick={googleLogin} />
+        </div>
       </form>
     </div>
   );
