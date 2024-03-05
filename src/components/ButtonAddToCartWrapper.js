@@ -1,5 +1,5 @@
 "use client";
-import Button from "./Button";
+import Button from "./style/Button";
 import { useCartContext } from "./context/CartContext";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";

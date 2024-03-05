@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/style/Button";
 import AdminNavbar from "@/components/admin/AdminNavbar";
 import ProductsTable from "@/components/admin/ProductsTable";
 import Link from "next/link";

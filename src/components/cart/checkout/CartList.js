@@ -1,7 +1,7 @@
 import { useCartContext } from "../../context/CartContext";
 import CheckoutRow from "./CheckoutRow";
 
-const CheckoutTable = () => {
+const CartList = () => {
   const { cart } = useCartContext();
 
   return (
@@ -17,4 +17,4 @@ const CheckoutTable = () => {
   );
 };
 
-export default CheckoutTable;
+export default CartList;

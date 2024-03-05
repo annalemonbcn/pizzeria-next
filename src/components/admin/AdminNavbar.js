@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button";
+import Button from "../style/Button";
 import Link from "next/link";
 import LogoutButton from "./LogoutButton";
 

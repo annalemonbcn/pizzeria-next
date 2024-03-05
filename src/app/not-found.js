@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/components/Button";
+import Button from "@/components/style/Button";
 import { useRouter } from "next/navigation";
 
 const NotFound = () => {

@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/style/Button";
 import Image from "next/image";
 import { Rubik_Doodle_Shadow } from "next/font/google";
 

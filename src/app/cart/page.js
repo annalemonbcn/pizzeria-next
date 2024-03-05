@@ -1,10 +1,9 @@
 "use client";
-
 import { useEffect, useState } from "react";
 
 import { useCartContext } from "@/components/context/CartContext";
 
-import CheckoutTable from "../../components/cart/checkout/CheckoutTable";
+import CartList from "../../components/cart/checkout/CartList";
 import Subtotal from "@/components/cart/subtotal/Subtotal";
 import H2 from "@/components/style/headings/H2";
 
@@ -37,7 +36,7 @@ const Cart = () => {
       {cart.length === 0 && <p>Your cart is empty</p>}
       {cart.length > 0 && (
         <>
-          <CheckoutTable />
+          <CartList />
           <Subtotal subtotalCartPrice={subtotalCartPrice} />
         </>
       )}
