@@ -1,18 +1,13 @@
-import { useState } from "react";
 import CounterButton from "./CounterButton";
+import { useCartContext } from "../context/CartContext";
+import { toast } from "sonner"
 
-import { useCartContext } from "@/components/context/CartContext";
-
-import { toast } from "sonner";
-
-const Counter = ({ cartItem, qty }) => {
+const Counter = ({ qty, setQty, cartItem, updateCart = false }) => {
   const { editCartItem } = useCartContext();
-  const [counterQty, setCounterQty] = useState(qty);
 
   const updateCartItem = (newQty) => {
     try {
       editCartItem(cartItem, newQty);
-      setCounterQty(newQty);
       toast.success("Cart updated successfully");
     } catch (error) {
       console.error("Error while updating the cart:", error);
@@ -21,17 +16,19 @@ const Counter = ({ cartItem, qty }) => {
   };
 
   const substract = () => {
-    if (counterQty > 1) updateCartItem(counterQty - 1);
+    const newQty = qty > 1 ? qty - 1 : qty;
+    updateCart ? updateCartItem(newQty) : setQty(newQty);
   };
 
   const add = () => {
-    updateCartItem(counterQty + 1);
+    const newQty = qty + 1;
+    updateCart ? updateCartItem(newQty) : setQty(newQty);
   };
 
   return (
-    <div className="counter flex items-center justify-between gap-2">
+    <div className="counter flex items-center justify-start gap-4">
       <CounterButton onClick={substract}>-</CounterButton>
-      <p className="font-bold">x{counterQty}</p>
+      <p className="font-bold">x{qty}</p>
       <CounterButton onClick={add}>+</CounterButton>
     </div>
   );

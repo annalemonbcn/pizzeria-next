@@ -1,24 +1,30 @@
 import Image from "next/image";
-import Counter from "../counter/Counter";
 import TrashSvg from "../../svg/TrashSvg";
 
 import { useCartContext } from "../../context/CartContext";
 
 import { formatPrice } from "@/app/utils/func";
+import Counter from "@/components/counter/Counter";
 
 const CheckoutRow = ({ cartItem }) => {
   const { deleteItemFromCart } = useCartContext();
 
-  const ImageProps = {
+  const imageProps = {
     src: cartItem.item.image,
     width: 150,
     height: 150,
   };
 
+  const counterProps = {
+    cartItem,
+    qty: cartItem.qty,
+    updateCart: true
+  }
+
   return (
     <div className="checkout-row flex items-center justify-between">
       <div className="w-1/2">
-        <Image {...ImageProps} alt={`${cartItem.item.name} image`} />
+        <Image {...imageProps} alt={`${cartItem.item.name} image`} />
       </div>
       <div className="w-1/2 flex flex-col gap-6">
         <div className="flex items-center justify-between">
@@ -29,7 +35,7 @@ const CheckoutRow = ({ cartItem }) => {
         <div className="flex items-center justify-between">
           <p className="font-bold">{formatPrice(cartItem.item.price)} €</p>
           {/* Set new qty */}
-          <Counter cartItem={cartItem} qty={cartItem.qty} />
+          <Counter {...counterProps} />
         </div>
       </div>
     </div>

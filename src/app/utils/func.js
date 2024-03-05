@@ -1,7 +1,11 @@
-export const capitalize = (text) => {
-  const firstLetter = text.charAt(0);
-  const rest = text.slice(1);
+export const capitalize = (str) => {
+  const firstLetter = str.charAt(0);
+  const rest = str.slice(1);
   return firstLetter.toUpperCase() + rest;
+};
+
+export const removeUnderscores = (str) => {
+  return (str = str.replace(/_/g, " "));
 };
 
 export const formatPrice = (price) => {
@@ -15,6 +19,6 @@ export const stringToSnakeCase = (name) => {
   return name.toLowerCase().replace(/\s+/g, "_");
 };
 
-export const stringToArray = (string) => {
-  return string.split(",").map((item) => item.trim());
+export const stringToArray = (str) => {
+  return str.split(",").map((item) => item.trim());
 };
