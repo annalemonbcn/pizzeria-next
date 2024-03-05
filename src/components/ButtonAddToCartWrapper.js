@@ -1,5 +1,5 @@
 "use client";
-import Button from "./style/Button";
+import Button from "./utils/Button";
 import { useCartContext } from "./context/CartContext";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
@@ -29,7 +29,7 @@ const ButtonAddToCartWrapper = ({ children, item }) => {
 
   return (
     <div>
-      <Button className="primary" onClick={handleAdd}>
+      <Button onClick={handleAdd}>
         {children}
       </Button>
     </div>

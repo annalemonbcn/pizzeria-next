@@ -27,9 +27,6 @@ const createProduct = async (product, file) => {
     ...product,
     imageURL: fileURL,
   });
-  // .then(() =>
-  //   console.log("Producto añadido a firestore")
-  // );
 };
 
 // TODO: modifyDoc and deleteDoc
@@ -126,7 +123,7 @@ const CreateForm = () => {
         />
       </div>
 
-      <Button className="primary">Enviar</Button>
+      <Button>Enviar</Button>
     </form>
   );
 };

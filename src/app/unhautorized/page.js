@@ -1,5 +1,5 @@
 "use client"
-import Button from "@/components/style/Button";
+import Button from "@/components/utils/Button";
 import { useRouter } from "next/navigation";
 
 const Unhautorized = () => {
@@ -11,7 +11,7 @@ const Unhautorized = () => {
           401 - Unhautorized
         </h1>
         <p className="mt-4">You don&apos;t have permission to acces this route</p>
-        <Button className="primary" onClick={() => router.replace("/")}>
+        <Button onClick={() => router.replace("/")}>
           Back home
         </Button>
       </main>

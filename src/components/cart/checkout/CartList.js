@@ -5,7 +5,7 @@ const CartList = () => {
   const { cart } = useCartContext();
 
   return (
-    <div className="checkout-table w-1/2 py-14 px-8 border border-zinc-300 rounded-xl">
+    <div className="checkout-table py-14 px-8 border border-zinc-300 rounded-xl">
       <p className="text-xl font-bold pl-2">Items</p>
       <hr />
       <div className="checkout-tableBody mt-8">

@@ -1,4 +1,4 @@
-import Button from "@/components/style/Button";
+import Button from "@/components/utils/Button";
 import Image from "next/image";
 import { Rubik_Doodle_Shadow } from "next/font/google";
 
@@ -25,8 +25,8 @@ export default function Home() {
           texture.
         </p>
         {/* <div className="flex gap-x-6 buttonWrapper">
-          <Button className="primary">Order  online</Button>
-          <Button className="primary">Us</Button>
+          <Button>Order  online</Button>
+          <Button>Us</Button>
         </div> */}
       </section>
       {/* <Image 
