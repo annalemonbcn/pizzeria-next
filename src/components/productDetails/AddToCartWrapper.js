@@ -28,10 +28,16 @@ const AddToCartWrapper = ({ item }) => {
     }
   };
 
+  const counterProps = {
+    qty,
+    setQty,
+    updateCart: false,
+  };
+
   return (
     <>
-      <Counter qty={qty} setQty={setQty} updateCart={false} />
-      <Button onClick={handleAdd}>Add to cart</Button>
+      <Counter {...counterProps} />
+      <Button onClick={handleAdd} className="mt-3">Add to cart</Button>
     </>
   );
 };

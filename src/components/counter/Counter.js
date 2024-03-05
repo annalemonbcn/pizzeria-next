@@ -6,7 +6,6 @@ const Counter = ({ qty, setQty, cartItem, updateCart = false }) => {
   const { editCartItem } = useCartContext();
 
   const updateCartItem = (newQty) => {
-    console.log("update cart pls")
     try {
       editCartItem(cartItem, newQty);
       toast.success("Cart updated successfully");
@@ -27,7 +26,7 @@ const Counter = ({ qty, setQty, cartItem, updateCart = false }) => {
   };
 
   return (
-    <div className="counter flex items-center justify-between gap-2">
+    <div className="counter flex items-center justify-start gap-4">
       <CounterButton onClick={substract}>-</CounterButton>
       <p className="font-bold">x{qty}</p>
       <CounterButton onClick={add}>+</CounterButton>
