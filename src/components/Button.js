@@ -3,12 +3,7 @@ const Button = ({ children, className = "", ...args }) => {
 
   return (
     <button
-      className={`border rounded-[50px] py-3 px-6 ${
-        isPrimary
-          ? "text-mainRed hover:text-white bg-white hover:bg-mainRed  border-mainRed hover:border-white"
-          : ""
-      }`}
-      style={{ boxShadow: "5px 3px 0px 0px #ac1823" }}
+      className={`rounded-md py-6 px-12 uppercase text-white  bg-red-main hover:bg-opacity-85 ${className}`}
       {...args}
     >
       {children}

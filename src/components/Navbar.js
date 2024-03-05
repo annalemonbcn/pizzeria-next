@@ -13,7 +13,7 @@ const Navbar = () => {
           href={link.href}
           key={index}
           className={`${
-            pathname === link.href ? "font-bold text-mainRed" : ""
+            pathname === link.href ? "font-bold text-red-main" : ""
           }`}
         >
           {link.label}

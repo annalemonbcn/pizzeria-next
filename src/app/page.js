@@ -12,7 +12,7 @@ export default function Home() {
     >
       <section className="section-first">
         <p className={`text-2xl ${rubik.className}`}>
-          <span className="text-mainRed font-semibold">
+          <span className="text-red-main font-semibold">
             IT&apos;S THE PLACE.
           </span>{" "}
           <span>IT&apos;S THE PIZZA.</span>

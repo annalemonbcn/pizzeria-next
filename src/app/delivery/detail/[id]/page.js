@@ -15,7 +15,7 @@ const PizzaImage = ({ src, alt }) => (
 
 const PizzaDetails = ({ currentPizza }) => (
   <div className="pizzaInfo">
-    <h1 className={`text-3xl text-mainRed ${rubik.className}`}>
+    <h1 className={`text-3xl text-red-main ${rubik.className}`}>
       {currentPizza.name.toUpperCase()}
     </h1>
     <div className="mt-4 ingredientesWrapper">
