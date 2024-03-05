@@ -56,7 +56,6 @@ export const AuthProvider = ({ children }) => {
         const docRef = doc(db, "roles", user.uid);
         const userDoc = await getDoc(docRef);
 
-        // console.log('userDoc', userDoc.data())
         if (userDoc.data()?.rol === "admin") {
           setUser({
             logged: true,
@@ -75,7 +74,7 @@ export const AuthProvider = ({ children }) => {
         });
       }
     });
-  }, []);
+  }, [router]);
 
   const handleAuthError = (error, action) => {
     console.error(`Error while ${action}`, error);
