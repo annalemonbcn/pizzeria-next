@@ -43,11 +43,19 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await signOut(auth);
+    try {
+      await signOut(auth);
+    } catch (error) {
+      handleAuthError(error, "logout");
+    }
   };
 
   const googleLogin = async () => {
-    await signInWithPopup(auth, provider);
+    try {
+      await signInWithPopup(auth, provider);
+    } catch (error) {
+      handleAuthError(error, "login");
+    }
   };
 
   useEffect(() => {

@@ -73,12 +73,11 @@ const ProductsTableBody = ({ itemsFromFirestore }) => {
 };
 
 const ProductsTable = async () => {
-  // TODO: optimizar peticiones GET
   let itemsFromFirestore;
   try {
     itemsFromFirestore = await getAllProducts();
   } catch (error) {
-    console.error(error);
+    console.error("Error while fetching products from Firestore", error);
     toast.error(error);
   }
 

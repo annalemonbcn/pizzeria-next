@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/components/style/Button";
+import Button from "@/components/utils/Button";
 import { useRouter } from "next/navigation";
 
 const NotFound = () => {
@@ -11,7 +11,7 @@ const NotFound = () => {
           404 - Page not found
         </h1>
         <p className="mt-4">The route you are trying to access does not exist</p>
-        <Button className="primary" onClick={() => router.back()}>
+        <Button onClick={() => router.back()}>
           Back
         </Button>
       </main>

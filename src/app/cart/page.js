@@ -5,7 +5,9 @@ import { useCartContext } from "@/components/context/CartContext";
 
 import CartList from "../../components/cart/checkout/CartList";
 import Subtotal from "@/components/cart/subtotal/Subtotal";
-import H2 from "@/components/style/headings/H2";
+import H2 from "@/components/utils/headings/H2";
+import Checkout from "@/components/cart/checkout/Checkout";
+import ClientForm from "@/components/cart/clientForm/ClientForm";
 
 const Cart = () => {
   const [subtotalCartPrice, setsubtTotalPrice] = useState(0);
@@ -35,10 +37,10 @@ const Cart = () => {
       <H2>Cart checkout</H2>
       {cart.length === 0 && <p>Your cart is empty</p>}
       {cart.length > 0 && (
-        <>
-          <CartList />
-          <Subtotal subtotalCartPrice={subtotalCartPrice} />
-        </>
+        <div className="w-full flex justify-between items-start">
+          <Checkout subtotalCartPrice={subtotalCartPrice} />
+          <ClientForm />
+        </div>
       )}
     </main>
   );

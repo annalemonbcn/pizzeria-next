@@ -49,10 +49,10 @@ const LoginForm = () => {
         </div>
         <div className="actionButtons">
           <div className="mb-6 flex items-center justify-center gap-4">
-            <Button className="primary" onClick={() => loginUser(values)}>
+            <Button onClick={() => loginUser(values)}>
               Login
             </Button>
-            <Button className="primary" onClick={() => registerUser(values)}>
+            <Button onClick={() => registerUser(values)}>
               Register
             </Button>
           </div>
