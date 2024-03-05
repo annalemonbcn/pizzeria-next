@@ -1,6 +1,7 @@
 import { formatPrice } from "@/app/utils/func";
 import Total from "./Total";
 import { useState, useEffect } from "react";
+import Button from "@/components/Button";
 
 const SubtotalElement = ({ children }) => (
   <p className="flex items-center justify-between">{children}</p>
@@ -36,6 +37,9 @@ const Subtotal = ({ subtotalCartPrice }) => {
         </SubtotalElement>
       </div>
       <Total totalCartprice={totalCartPrice} />
+      <div className="mt-8">
+        <Button>Place the order</Button>
+      </div>
     </>
   );
 };
