@@ -3,7 +3,9 @@ import { toast } from "sonner";
 
 import { createContext, useContext, useState, useEffect } from "react";
 
-import { auth, provider } from "@/firebase/config";
+import { useRouter } from "next/navigation";
+
+import { auth, db, provider } from "@/firebase/config";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -11,11 +13,13 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 
 const AuthContext = createContext();
 export const useAuthContext = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
+  const router = useRouter();
   const [user, setUser] = useState({
     logged: false,
     email: null,
@@ -47,13 +51,22 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
       if (user) {
-        setUser({
-          logged: true,
-          email: user.email,
-          uid: user.uid,
-        });
+        const docRef = doc(db, "roles", user.uid);
+        const userDoc = await getDoc(docRef);
+
+        // console.log('userDoc', userDoc.data())
+        if (userDoc.data()?.rol === "admin") {
+          setUser({
+            logged: true,
+            email: user.email,
+            uid: user.uid,
+          });
+        } else {
+          router.push("/unhautorized");
+          logout();
+        }
       } else {
         setUser({
           logged: false,
