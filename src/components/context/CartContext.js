@@ -7,47 +7,7 @@ const CartContext = createContext();
 export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-  // ! cartItemExample:
-  //   {
-  //     item: {
-  //       category: Array,
-  //       id: string,
-  //       image: string,
-  //       ingredients: Array,
-  //       name: string,
-  //       price: numnber
-  //     },
-  //     qty: number
-  //   }
-
-  const mockCart = [
-    {
-      item: {
-        category: ["bianca"],
-        id: "margherita",
-        image:
-          "https://firebasestorage.googleapis.com/v0/b/pizzeria-lamamma-26900.appspot.com/o/margarita.png?alt=media&token=b8328727-e3e7-4232-af2c-2c719b756efc",
-        ingredients: ["mozarella", "tomate"],
-        name: "Margherita",
-        price: 11.5,
-      },
-      qty: 2,
-    },
-    {
-      item: {
-        category: ["pizza_rossa"],
-        id: "hawaiana",
-        image:
-          "https://firebasestorage.googleapis.com/v0/b/pizzeria-lamamma-26900.appspot.com/o/hawaiana.png?alt=media&token=68d92706-9bee-4291-8c24-a6b8cb6b2427",
-        ingredients: ["mozarella", "tomate"],
-        name: "Hawaiana",
-        price: 13.5,
-      },
-      qty: 3,
-    },
-  ];
-
-  const [cart, setCart] = useState(mockCart);
+  const [cart, setCart] = useState([]);
   const [cartLength, setCartLength] = useState(0);
 
   /**
@@ -68,8 +28,8 @@ export const CartProvider = ({ children }) => {
   /**
    * addToCart *
    * Add a new item to the cart
-   * @param {*} item 
-   * @param {*} qty 
+   * @param {*} item
+   * @param {*} qty
    */
   const addToCart = (item, qty) => {
     const productIndex = cart.findIndex(
@@ -97,7 +57,7 @@ export const CartProvider = ({ children }) => {
   /**
    * deleteItemFromCart *
    * Deletes a selected item from the cart
-   * @param {*} item 
+   * @param {*} item
    */
   const deleteItemFromCart = (item) => {
     const newCart = cart.filter(
@@ -109,8 +69,8 @@ export const CartProvider = ({ children }) => {
   /**
    * editCartItem *
    * Edits the qty attribute for a selected cart item
-   * @param {*} item 
-   * @param {*} newQty 
+   * @param {*} item
+   * @param {*} newQty
    */
   const editCartItem = (item, newQty) => {
     setCart(
