@@ -37,9 +37,6 @@ const Subtotal = ({ subtotalCartPrice }) => {
         </SubtotalElement>
       </div>
       <Total totalCartprice={totalCartPrice} />
-      <div className="mt-8">
-        <Button>Place the order</Button>
-      </div>
     </>
   );
 };
