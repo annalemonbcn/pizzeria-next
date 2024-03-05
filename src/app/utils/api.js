@@ -10,6 +10,7 @@ export const getAllProducts = async (category = "all") => {
   return res.json();
 };
 
+// TODO: change localhost urls for relative urls (?)
 export const getSingleProduct = async (id) => {
   const res = await fetch(`http://localhost:3000/api/product/${id}`, {
     cache: "no-store",

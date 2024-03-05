@@ -2,7 +2,7 @@ import Image from "next/image";
 import { capitalize } from "@/app/utils/func";
 import PizzaDetails from "@/components/productDetails/PizzaDetails";
 import { getSingleProduct } from "@/app/utils/api";
-import { toast } from "sonner";
+// import { toast } from "sonner";
 
 const PizzaImage = ({ src, alt }) => (
   <div className="w-1/2 imageWrapper">
@@ -27,7 +27,7 @@ const ProductDetail = async ({ params }) => {
     currentPizza.id = id;
   } catch (error) {
     console.error(error);
-    toast.error(error);
+    // toast.error(error);
   }
 
   return (
