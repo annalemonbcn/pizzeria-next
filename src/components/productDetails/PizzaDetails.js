@@ -1,6 +1,6 @@
 import { formatPrice } from "@/app/utils/func";
 import AddToCartWrapper from "./AddToCartWrapper";
-import StyledH3 from "../UI/headings/StyledH3";
+import StyledH3 from "../utils/headings/StyledH3";
 
 const PizzaDetails = ({ currentPizza, className = "" }) => (
   <>

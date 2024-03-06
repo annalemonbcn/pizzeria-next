@@ -1,9 +1,9 @@
-import StyledSection from "@/components/UI/StyledSection";
+import StyledSection from "@/components/utils/StyledSection";
 import CategoriesMenu from "@/components/products/CategoriesMenu";
 import ProductsList from "@/components/products/ProductList";
 
 import { removeUnderscores } from "@/app/utils/func";
-import StyledH2 from "@/components/UI/headings/StyledH2";
+import StyledH2 from "@/components/utils/headings/StyledH2";
 
 // TODO: ??
 export function generateStaticParams() {

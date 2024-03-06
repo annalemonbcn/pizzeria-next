@@ -1,5 +1,5 @@
-import StyledSection from "@/components/UI/StyledSection";
-import StyledH2 from "@/components/UI/headings/StyledH2";
+import StyledSection from "@/components/utils/StyledSection";
+import StyledH2 from "@/components/utils/headings/StyledH2";
 import PizzaImage from "@/components/productDetails/PizzaImage";
 import PizzaDetails from "@/components/productDetails/PizzaDetails";
 

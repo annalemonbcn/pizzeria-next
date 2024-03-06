@@ -10,7 +10,8 @@ module.exports = {
       colors: {
         "red-main": "#B72A23",
         cream: "#ecebe6",
-        "black-main": "#2D2D2D"
+        "black-main": "#2D2D2D",
+        "gray-main": "#d4d4d8",
       },
     },
   },

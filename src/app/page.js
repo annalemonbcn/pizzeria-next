@@ -1,13 +1,13 @@
 import Link from "next/link";
 
 import Button from "@/components/utils/Button";
-import LeftPill from "@/components/UI/LeftPill";
-import StyledSection from "@/components/UI/StyledSection";
+import LeftPill from "@/components/utils/LeftPill";
+import StyledSection from "@/components/utils/StyledSection";
 import Footer from "@/components/Footer";
 
 import { findMenulink } from "./utils/func";
 
-import StyledH1 from "@/components/UI/headings/StyledH1";
+import StyledH1 from "@/components/utils/headings/StyledH1";
 
 const Home = () => {
   const deliveryLink = findMenulink("Delivery");
