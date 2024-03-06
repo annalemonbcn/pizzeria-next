@@ -4,11 +4,11 @@ import CartWidget from "./cart/CartWidget";
 import Link from "next/link";
 
 const Header = () => (
-  <header className="w-[90%] left-[5%] fixed top-10 text-white flex items-center bg-transparent z-10">
-    <div className="w-1/3 flex justify-start">
+  <header className="w-screen px-6 md:px-14 fixed top-10 flex items-center text-white bg-transparent z-10">
+    <div className="hidden lg:w-1/3 lg:flex justify-start">
       <Navbar />
     </div>
-    <div className="w-1/3 flex justify-center">
+    <div className="w-2/3 lg:w-1/3 flex flex-col lg:justify-center">
       <Link href={"/"}>
         <Image
           src={"/logo.png"}
@@ -18,8 +18,10 @@ const Header = () => (
           priority
         />
       </Link>
+      <Navbar className="mt-4 lg:hidden" />
     </div>
-    <div className="w-1/3 flex justify-end">
+    {/* TODO: why cart icon is down in mobile */}
+    <div className="w-1/3 lg:w-1/3 flex justify-end">
       <CartWidget />
     </div>
   </header>

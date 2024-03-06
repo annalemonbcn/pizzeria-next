@@ -2,12 +2,15 @@
 import { menuLinks } from "@/mock/menuLinks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ArrowRight from "./svg/ArrowRight";
 
-const Navbar = () => {
+const Navbar = ({ className = "" }) => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex justify-center items-center gap-x-8 text-xl">
+    <nav
+      className={`flex flex-col lg:flex-row justify-center lg:items-center gap-x-8 text-xl ${className}`}
+    >
       {menuLinks.map((link, index) => (
         <Link
           href={link.href}
@@ -16,7 +19,9 @@ const Navbar = () => {
             pathname === link.href ? "font-bold text-red-main" : ""
           }`}
         >
-          {link.label}
+          <div className="flex items-center">
+            <ArrowRight className="lg:hidden" /> {link.label}
+          </div>
         </Link>
       ))}
     </nav>

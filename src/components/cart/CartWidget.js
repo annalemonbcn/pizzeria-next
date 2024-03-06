@@ -2,14 +2,17 @@
 import Link from "next/link";
 import CartSvg from "../svg/CartSvg";
 import { useCartContext } from "../context/CartContext";
+import { findMenulink } from "@/app/utils/func";
 
 const CartWidget = () => {
   const { cartLength } = useCartContext();
 
+  const cartLink = findMenulink("Cart");
+
   return (
     <Link
       className="flex justify-center items-center relative w-10 -left-3 cursor-pointer"
-      href="/cart"
+      href={cartLink}
     >
       <div className="relative py-2 transition-all ease-in hover:scale-[1.15] duration-150">
         <div className="t-0 absolute left-3 top-[-0.2rem]">

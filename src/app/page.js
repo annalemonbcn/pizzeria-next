@@ -4,7 +4,6 @@ import Button from "@/components/utils/Button";
 import LeftPill from "@/components/UI/LeftPill";
 import StyledSection from "@/components/UI/StyledSection";
 
-import { menuLinks } from "@/mock/menuLinks";
 import { findMenulink } from "./utils/func";
 
 import { Oleo_Script } from "next/font/google";
