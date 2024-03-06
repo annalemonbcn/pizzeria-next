@@ -1,7 +1,9 @@
 import ProductView from "@/components/products/ProductView";
-import { formatPrice } from "@/app/utils/func";
-import { toast } from "sonner";
 import { getAllProducts } from "@/app/utils/api";
+
+import { formatPrice } from "@/app/utils/func";
+
+import { toast } from "sonner";
 
 const ProductsList = async ({ category }) => {
   let items;
@@ -14,7 +16,7 @@ const ProductsList = async ({ category }) => {
   }
 
   return (
-    <div className="mt-4 flex gap-4 productsWrapper">
+    <div className="py-8 flex justify-center flex-wrap gap-x-4 gap-y-10">
       {items.map((product) => (
         <ProductView
           key={product.id}

@@ -1,22 +1,27 @@
 "use client";
-import { menuLinks } from "@/mock/data";
 import Link from "next/link";
+import { menuLinks } from "@/mock/menuLinks";
+import ArrowRight from "./svg/ArrowRight";
 import { usePathname } from "next/navigation";
 
-const Navbar = () => {
+const Navbar = ({ className = "" }) => {
   const pathname = usePathname();
 
   return (
-    <nav className="mt-4 flex justify-center items-center gap-x-3 text-xl">
-      {menuLinks.map((link, index) => (
+    <nav
+      className={`flex flex-col lg:flex-row justify-center lg:items-center gap-x-8 text-xl ${className}`}
+    >
+      {menuLinks.map((link, idx) => (
         <Link
           href={link.href}
-          key={index}
+          key={idx}
           className={`${
             pathname === link.href ? "font-bold text-red-main" : ""
           }`}
         >
-          {link.label}
+          <div className="flex items-center">
+            <ArrowRight className="lg:hidden" /> {link.label}
+          </div>
         </Link>
       ))}
     </nav>

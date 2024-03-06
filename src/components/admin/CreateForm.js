@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Button from "../style/Button";
+import Button from "../utils/Button";
 
 import { stringToArray, stringToSnakeCase } from "@/app/utils/func";
 
