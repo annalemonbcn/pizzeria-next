@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Button from "../style/Button";
+import Button from "../utils/Button";
 import GoogleButton from "react-google-button";
 
 import { useAuthContext } from "../context/AuthContext";

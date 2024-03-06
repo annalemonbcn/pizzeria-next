@@ -1,5 +1,5 @@
 // rootLayout
-import { Roboto } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,11 +8,11 @@ import { AuthProvider } from "@/components/context/AuthContext";
 
 import { Toaster, toast } from "sonner";
 
-const roboto = Roboto({ subsets: ["latin"], weight: "400" });
+const montserrat = Montserrat({ subsets: ["latin"], weight: "400" });
 
 const RootLayout = ({ children }) => (
   <html lang="en">
-    <body className={roboto.className}>
+    <body className={montserrat.className}>
       <AuthProvider>
         <CartProvider>
           <Toaster richColors position="top-right" />
@@ -25,4 +25,4 @@ const RootLayout = ({ children }) => (
   </html>
 );
 
-export default RootLayout
+export default RootLayout;

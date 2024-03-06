@@ -8,20 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "red-main": "#FF5E5B",
-        "black-main": "#131515",
-        headings: "#252422",
+        "red-main": "#B72A23",
       },
     },
   },
-  plugins: [
-    function ({ addBase, theme }) {
-      const colors = theme("colors");
-      addBase({
-        "h1, h2, h3, h4, h5, h6": {
-          color: colors["headings"],
-        },
-      });
-    },
-  ],
+  // plugins: [
+  //   function ({ addBase, theme }) {
+  //     const colors = theme("colors");
+  //     addBase({
+  //       "h1, h2, h3, h4, h5, h6": {
+  //         color: colors["red-main"],
+  //       },
+  //     });
+  //   },
+  // ],
 };

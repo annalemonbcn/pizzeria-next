@@ -1,22 +1,28 @@
 import Image from "next/image";
 import Navbar from "./Navbar";
-import CartSvg from "./svg/CartSvg";
 import CartWidget from "./cart/CartWidget";
+import Link from "next/link";
 
-const Header = () => {
-  return (
-    <header className="relative flex flex-col justify-center items-center">
-      <Image
-        src={"/logo.png"}
-        alt="pizzeria logo"
-        width={175}
-        height={175}
-        priority
-      />
+const Header = () => (
+  <header className="w-[90%] left-[5%] fixed top-10 text-white flex items-center bg-transparent z-10">
+    <div className="w-1/3 flex justify-start">
       <Navbar />
+    </div>
+    <div className="w-1/3 flex justify-center">
+      <Link href={"/"}>
+        <Image
+          src={"/logo.png"}
+          alt="pizzeria logo"
+          width={324}
+          height={34}
+          priority
+        />
+      </Link>
+    </div>
+    <div className="w-1/3 flex justify-end">
       <CartWidget />
-    </header>
-  );
-};
+    </div>
+  </header>
+);
 
 export default Header;

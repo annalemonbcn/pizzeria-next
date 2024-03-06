@@ -1,14 +1,10 @@
-const Button = ({ children, className = "", ...args }) => {
-  const isPrimary = className.includes("primary");
-
-  return (
-    <button
-      className={`rounded-md py-6 px-12 uppercase text-white  bg-red-main hover:bg-opacity-85 ${className}`}
-      {...args}
-    >
-      {children}
-    </button>
-  );
-};
+const Button = ({ children, className = "", ...args }) => (
+  <button
+    className={`rounded-[50px] py-4 px-14 uppercase text-white bg-red-main hover:bg-opacity-90 transition-all ${className}`}
+    {...args}
+  >
+    {children}
+  </button>
+);
 
 export default Button;

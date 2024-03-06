@@ -1,39 +1,38 @@
+import Link from "next/link";
+
 import Button from "@/components/utils/Button";
-import Image from "next/image";
-import { Rubik_Doodle_Shadow } from "next/font/google";
+import LeftPill from "@/components/UI/LeftPill";
+import StyledSection from "@/components/UI/StyledSection";
 
-const rubik = Rubik_Doodle_Shadow({ subsets: ["latin"], weight: "400" });
+import { menuLinks } from "@/mock/menuLinks";
+import { findMenulink } from "./utils/func";
 
-export default function Home() {
+import { Oleo_Script } from "next/font/google";
+const oleoScript = Oleo_Script({ subsets: ["latin"], weight: "400" });
+
+const Home = () => {
+  const deliveryLink = findMenulink("Delivery");
   return (
-    <main
-      className="w-full min-h-screen relative flex flex-col items-center justify-between py-3 px-6 bg-cover"
-      style={{ backgroundImage: "url('/pizza_01.jpg')" }}
-    >
-      <section className="section-first">
-        <p className={`text-2xl ${rubik.className}`}>
-          <span className="text-red-main font-semibold">
-            IT&apos;S THE PLACE.
-          </span>{" "}
-          <span>IT&apos;S THE PIZZA.</span>
-        </p>
-      </section>
-      <section className="flex flex-col justify-center items-center section-info">
-        <p>
-          At La Pizzeria Mamma the art of dough has been perfected to the point
-          of delirium. Lovingly fermented for 72 hours to achieve the perfect
-          texture.
-        </p>
-        {/* <div className="flex gap-x-6 buttonWrapper">
-          <Button>Order  online</Button>
-          <Button>Us</Button>
-        </div> */}
-      </section>
-      {/* <Image 
-        src={"/pizza_01.jpg"}
-        alt="pizza image"
-        fill={true}
-      /> */}
+    <main>
+      <StyledSection
+        className="w-full min-h-screen relative section-first"
+        style={{ backgroundImage: "url('/home_bg.png')" }}
+      >
+        <LeftPill>
+          <h1
+            className={`text-7xl text-white uppercase ${oleoScript.className}`}
+          >
+            all the best
+            <br />
+            things are round
+          </h1>
+          <Link href={deliveryLink}>
+            <Button className="mt-8">Order now</Button>
+          </Link>
+        </LeftPill>
+      </StyledSection>
     </main>
   );
-}
+};
+
+export default Home;

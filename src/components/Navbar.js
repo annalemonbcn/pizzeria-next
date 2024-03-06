@@ -1,5 +1,5 @@
 "use client";
-import { menuLinks } from "@/mock/data";
+import { menuLinks } from "@/mock/menuLinks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -7,7 +7,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="mt-4 flex justify-center items-center gap-x-3 text-xl">
+    <nav className="flex justify-center items-center gap-x-8 text-xl">
       {menuLinks.map((link, index) => (
         <Link
           href={link.href}
