@@ -8,7 +8,10 @@ import { AuthProvider } from "@/components/context/AuthContext";
 
 import { Toaster, toast } from "sonner";
 
-const montserrat = Montserrat({ subsets: ["latin"], weight: "400" });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const RootLayout = ({ children }) => (
   <html lang="en">

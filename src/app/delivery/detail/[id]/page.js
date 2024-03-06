@@ -1,14 +1,13 @@
-import Image from "next/image";
-import { capitalize } from "@/app/utils/func";
+import StyledSection from "@/components/UI/StyledSection";
+import StyledH2 from "@/components/UI/headings/StyledH2";
+import PizzaImage from "@/components/productDetails/PizzaImage";
 import PizzaDetails from "@/components/productDetails/PizzaDetails";
-import { getSingleProduct } from "@/app/utils/api";
-import { toast } from "sonner";
 
-const PizzaImage = ({ src, alt }) => (
-  <div className="w-1/2 imageWrapper">
-    <Image src={src} alt={`pizza ${alt}`} width={600} height={600} />
-  </div>
-);
+import { getSingleProduct } from "@/app/utils/api";
+
+import { capitalize } from "@/app/utils/func";
+
+import { toast } from "sonner";
 
 // TODO: generate metada for every page
 export async function generateMetadata({ params, searchParams }, parent) {
@@ -19,7 +18,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 const ProductDetail = async ({ params }) => {
   const { id } = params;
-  
+
   let currentPizza;
 
   try {
@@ -31,15 +30,18 @@ const ProductDetail = async ({ params }) => {
   }
 
   return (
-    <main className="w-full flex flex-col items-center mt-12">
-      <div className="flex justify-between pizzaWraper">
-        {currentPizza && (
-          <>
-            <PizzaImage src={currentPizza.image} alt={currentPizza.name} />
-            <PizzaDetails currentPizza={currentPizza} />
-          </>
-        )}
-      </div>
+    <main>
+      <StyledSection>
+        <div className="flex flex-col md:flex-row md:flex-wrap items-center pb-8">
+          {currentPizza && (
+            <>
+              <StyledH2 className="md:w-full">{currentPizza.name}</StyledH2>
+              <PizzaImage currentPizza={currentPizza} className="w-5/6 md:w-1/2"/>
+              <PizzaDetails currentPizza={currentPizza} className="w-5/6 md:w-1/2 flex flex-col"/>
+            </>
+          )}
+        </div>
+      </StyledSection>
     </main>
   );
 };

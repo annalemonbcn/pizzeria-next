@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import Counter from "../counter/Counter";
 
-const AddToCartWrapper = ({ item }) => {
+const AddToCartWrapper = ({ item, className = "" }) => {
   const { addToCart } = useCartContext();
 
   const router = useRouter();
@@ -35,10 +35,10 @@ const AddToCartWrapper = ({ item }) => {
   };
 
   return (
-    <>
+    <div className={`flex flex-col items-center gap-3 ${className}`}>
       <Counter {...counterProps} />
-      <Button onClick={handleAdd} className="mt-3">Add to cart</Button>
-    </>
+      <Button onClick={handleAdd}>Add to cart</Button>
+    </div>
   );
 };
 

@@ -30,7 +30,7 @@ const Products = ({ params }) => {
   return (
     <main>
       <StyledSection>
-        <StyledH2 className="py-4">Delivery</StyledH2>
+        <StyledH2>Delivery</StyledH2>
         <CategoriesMenu />
         <ProductsList category={category} />
       </StyledSection>
