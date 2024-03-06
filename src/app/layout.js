@@ -12,13 +12,13 @@ const montserrat = Montserrat({ subsets: ["latin"], weight: "400" });
 
 const RootLayout = ({ children }) => (
   <html lang="en">
-    <body className={montserrat.className}>
+    <body className={`bg-cream text-black-main ${montserrat.className}`}>
       <AuthProvider>
         <CartProvider>
           <Toaster richColors position="top-right" />
           <Header />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </CartProvider>
       </AuthProvider>
     </body>

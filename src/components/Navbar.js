@@ -1,8 +1,8 @@
 "use client";
-import { menuLinks } from "@/mock/menuLinks";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { menuLinks } from "@/mock/menuLinks";
 import ArrowRight from "./svg/ArrowRight";
+import { usePathname } from "next/navigation";
 
 const Navbar = ({ className = "" }) => {
   const pathname = usePathname();
@@ -11,10 +11,10 @@ const Navbar = ({ className = "" }) => {
     <nav
       className={`flex flex-col lg:flex-row justify-center lg:items-center gap-x-8 text-xl ${className}`}
     >
-      {menuLinks.map((link, index) => (
+      {menuLinks.map((link, idx) => (
         <Link
           href={link.href}
-          key={index}
+          key={idx}
           className={`${
             pathname === link.href ? "font-bold text-red-main" : ""
           }`}

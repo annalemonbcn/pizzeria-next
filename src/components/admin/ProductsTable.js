@@ -14,10 +14,10 @@ const ProductsTableTitle = () => {
 
   return (
     <div className="flex font-bold text-center adminPanel-title">
-      {titles.map((title, index) => (
+      {titles.map((title, idx) => (
         <div
           className={`w-1/6 adminPanel-title-${title.toLowerCase()}`}
-          key={index}
+          key={idx}
         >
           {title}
         </div>
@@ -48,8 +48,8 @@ const ProductsTableBody = ({ itemsFromFirestore }) => {
           <div className="w-1/6 element-name">{pizza.name}</div>
           <div className="w-1/6 element-ingredients">
             <ul>
-              {pizza.ingredients.map((ingredient, index) => (
-                <li key={index} className="list-disc text-left">
+              {pizza.ingredients.map((ingredient, idx) => (
+                <li key={idx} className="list-disc text-left">
                   {ingredient}
                 </li>
               ))}
@@ -58,8 +58,8 @@ const ProductsTableBody = ({ itemsFromFirestore }) => {
           <div className="w-1/6 element-price">{pizza.price} €</div>
           <div className="w-1/6 element-category">
             <ul>
-              {pizza.category.map((category, index) => (
-                <li key={index} className="list-disc text-left">
+              {pizza.category.map((category, idx) => (
+                <li key={idx} className="list-disc text-left">
                   {category}
                 </li>
               ))}
