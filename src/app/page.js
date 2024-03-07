@@ -1,12 +1,37 @@
-import { Counter } from "@/components/Counter";
-import { Title } from "@/components/Title";
-import Image from "next/image";
+import Link from "next/link";
 
+import Button from "@/components/utils/Button";
+import LeftPill from "@/components/utils/LeftPill";
+import StyledSection from "@/components/utils/StyledSection";
+import Footer from "@/components/Footer";
 
-export default function Home() {
+import { findMenulink } from "./utils/func";
+
+import StyledH1 from "@/components/utils/headings/StyledH1";
+
+const Home = () => {
+  const deliveryLink = findMenulink("Delivery");
   return (
-    <main className="flex  flex-col items-center justify-between p-2">
-      <h1>Initial commit</h1>
+    <main>
+      <StyledSection
+        homeSection
+        className="w-full min-h-screen relative section-first"
+        style={{ backgroundImage: "url('/home_bg.png')" }}
+      >
+        <LeftPill>
+          <StyledH1>
+            all the best
+            <br />
+            things are round
+          </StyledH1>
+          <Link href={deliveryLink}>
+            <Button className="mt-8">Order now</Button>
+          </Link>
+        </LeftPill>
+      </StyledSection>
+      <Footer />
     </main>
   );
-}
+};
+
+export default Home;

@@ -7,12 +7,22 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        "red-main": "#B72A23",
+        cream: "#ecebe6",
+        "black-main": "#2D2D2D",
+        "gray-main": "#d4d4d8",
       },
     },
   },
-  plugins: [],
+  // plugins: [
+  //   function ({ addBase, theme }) {
+  //     const colors = theme("colors");
+  //     addBase({
+  //       "h1, h2, h3, h4, h5, h6": {
+  //         color: colors["red-main"],
+  //       },
+  //     });
+  //   },
+  // ],
 };
