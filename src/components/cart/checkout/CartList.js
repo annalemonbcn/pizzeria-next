@@ -7,8 +7,7 @@ const CartList = () => {
 
   return (
     <div className="checkout-table p-4 lg:py-14 lg:px-8 border border-gray-main rounded-xl">
-      <StyledH3 className="text-xl font-bold pl-2">Items</StyledH3>
-      <hr />
+      <StyledH3 className="text-xl font-bold pl-2 border-b border-gray-main">Items</StyledH3>
       <div className="checkout-tableBody mt-4 lg:mt-8">
         {cart.map((pizza) => (
           <CheckoutRow key={pizza.item.id} cartItem={pizza} />

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useCartContext } from "@/components/context/CartContext";
 
 import Checkout from "@/components/cart/checkout/Checkout";
-import ClientForm from "@/components/cart/clientForm/ClientForm";
+import CheckoutForm from "@/components/cart/checkoutForm/CheckoutForm";
 import StyledSection from "@/components/utils/StyledSection";
 import StyledH2 from "@/components/utils/headings/StyledH2";
 
@@ -13,7 +13,6 @@ const Cart = () => {
   const { cart } = useCartContext();
 
   useEffect(() => {
-    // TODO: mover a cartContext ?
     const sumPricesInCart = () => {
       if (cart.length === 0) {
         return 0;
@@ -28,17 +27,18 @@ const Cart = () => {
     setsubtTotalPrice(sumPricesInCart());
   }, [cart]);
 
-  // if (cart.length === 0) return <p>Your cart is empty</p>;
-
   return (
     <main>
       <StyledSection>
         <StyledH2>Cart checkout</StyledH2>
         {cart.length === 0 && <p>Your cart is empty</p>}
         {cart.length > 0 && (
-          <div className="w-full flex flex-col lg:flex-row justify-between items-start">
-            <Checkout subtotalCartPrice={subtotalCartPrice} className="md:w-1/2"/>
-            <ClientForm />
+          <div className="w-full flex flex-col lg:flex-row justify">
+            <Checkout
+              subtotalCartPrice={subtotalCartPrice}
+              className="lg:w-2/3 lg:px-10"
+            />
+            <CheckoutForm className="lg:w-1/3" />
           </div>
         )}
       </StyledSection>

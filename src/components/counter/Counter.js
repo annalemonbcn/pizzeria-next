@@ -26,7 +26,7 @@ const Counter = ({ qty, setQty, cartItem, updateCart = false }) => {
   };
 
   return (
-    <div className="counter flex items-center justify-start gap-4">
+    <div className="counter flex items-center justify-start gap-2 md:gap-4">
       <CounterButton onClick={substract}>-</CounterButton>
       <p className="font-bold">x{qty}</p>
       <CounterButton onClick={add}>+</CounterButton>

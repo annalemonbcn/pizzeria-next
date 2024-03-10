@@ -7,7 +7,35 @@ const CartContext = createContext();
 export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const mockCart = [
+    {
+      item: {
+        category: ["pizza_rossa"],
+        id: "cotto_funghi",
+        image:
+          "https://firebasestorage.googleapis.com/v0/b/pizzeria-lamamma-26900.appspot.com/o/cotto_funghi.png?alt=media&token=7689f688-9d4e-4cd8-8032-1efe7b92e4eb",
+        ingredients: ["tomato", "mozarella", "york ham", "fresh mushrooms"],
+        name: "Cotto Funghi",
+        price: 14.2,
+      },
+      qty: 2,
+    },
+    {
+      item: {
+        category: ["pizza_rossa"],
+        id: "margherita",
+        image:
+        "https://firebasestorage.googleapis.com/v0/b/pizzeria-lamamma-26900.appspot.com/o/margarita.png?alt=media&token=b8328727-e3e7-4232-af2c-2c719b756efc",
+        ingredients: ["tomato", "mozarella", "basil"],
+        name: "Margherita",
+        price: 11.5,
+      },
+      qty: 1,
+    },
+  ];
+
+  // const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(mockCart);
   const [cartLength, setCartLength] = useState(0);
 
   /**

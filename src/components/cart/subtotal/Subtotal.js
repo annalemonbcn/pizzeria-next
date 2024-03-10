@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Button from "@/components/utils/Button";
 
 const SubtotalElement = ({ children }) => (
-  <p className="flex items-center justify-between">{children}</p>
+  <p className="flex items-center justify-start">{children}</p>
 );
 
 const Subtotal = ({ subtotalCartPrice }) => {
@@ -22,17 +22,17 @@ const Subtotal = ({ subtotalCartPrice }) => {
 
   return (
     <>
-      <div className="subtotal w-1/2 mt-9">
+      <div className="w-full lg:w-1/2 mt-9 pb-4 border-b border-gray-main">
         <SubtotalElement>
-          <span>Sub-total:</span>
+          <span className="w-1/3">Sub-total:</span>
           <span className="font-bold">{formatPrice(subtotalCartPrice)} €</span>
         </SubtotalElement>
         <SubtotalElement>
-          <span>Tax:</span>
+          <span className="w-1/3">Tax:</span>
           <span className="font-bold">{formatPrice(taxPrice)} €</span>
         </SubtotalElement>
         <SubtotalElement>
-          <span>Delivery:</span>
+          <span className="w-1/3">Delivery:</span>
           <span className="font-bold">{formatPrice(shippingPrice)} €</span>
         </SubtotalElement>
       </div>
