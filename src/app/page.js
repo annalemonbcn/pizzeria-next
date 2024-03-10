@@ -9,6 +9,12 @@ import { findMenulink } from "./utils/func";
 
 import StyledH1 from "@/components/utils/headings/StyledH1";
 
+export const metadata = {
+  title: "Pizzalicious - Best pizzas in town",
+  description:
+    "Indulge in mouthwatering flavors at our pizza paradise! From classic favorites to signature specialties, our freshly baked pies promise to tantalize your taste buds. Order online for a slice of perfection delivered right to your doorstep. Savor every bite and experience pizza bliss today!",
+};
+
 const Home = () => {
   const deliveryLink = findMenulink("Delivery");
   return (

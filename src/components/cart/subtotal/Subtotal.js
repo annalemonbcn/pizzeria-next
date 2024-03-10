@@ -32,7 +32,7 @@ const Subtotal = ({ subtotalCartPrice }) => {
           <span className="font-bold">{formatPrice(taxPrice)} €</span>
         </SubtotalElement>
         <SubtotalElement>
-          <span>Shipping:</span>
+          <span>Delivery:</span>
           <span className="font-bold">{formatPrice(shippingPrice)} €</span>
         </SubtotalElement>
       </div>
