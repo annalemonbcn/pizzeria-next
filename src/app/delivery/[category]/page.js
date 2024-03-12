@@ -18,7 +18,7 @@ export const revalidate = 3600;
 
 export async function generateMetadata({ params, searchParams }, parent) {
   return {
-    title: `La Mamma Pizza - Hungry? Here's a list of ${removeUnderscores(
+    title: `Pizzalicious - Hungry? Here's a list of ${removeUnderscores(
       params.category
     )} pizzas`,
   };
