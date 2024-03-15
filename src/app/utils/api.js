@@ -1,5 +1,5 @@
 export const getAllProducts = async (category = "all") => {
-  const res = await fetch(`http://localhost:3000/api/products/${category}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products/${category}`, {
     cache: "no-store",
   });
 
@@ -12,7 +12,7 @@ export const getAllProducts = async (category = "all") => {
 
 // TODO: change localhost urls for relative urls (?)
 export const getSingleProduct = async (id) => {
-  const res = await fetch(`http://localhost:3000/api/product/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/product/${id}`, {
     cache: "no-store",
   });
 
