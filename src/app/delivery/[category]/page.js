@@ -5,7 +5,6 @@ import ProductsList from "@/components/products/ProductList";
 import { removeUnderscores } from "@/app/utils/func";
 import StyledH2 from "@/components/utils/headings/StyledH2";
 
-// TODO: ??
 export function generateStaticParams() {
   return [
     { category: "all" },
