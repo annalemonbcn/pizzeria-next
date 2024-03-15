@@ -12,7 +12,7 @@ import { toast } from "sonner";
 // TODO: generate metada for every page
 export async function generateMetadata({ params, searchParams }, parent) {
   return {
-    title: `La Mamma Pizza - Try our delicious pizza ${capitalize(params.id)}`,
+    title: `Pizzalicious - Try our delicious pizza ${capitalize(params.id)}`,
   };
 }
 

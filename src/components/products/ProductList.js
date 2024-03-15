@@ -16,7 +16,7 @@ const ProductsList = async ({ category }) => {
   }
 
   return (
-    <div className="py-8 flex justify-center flex-wrap gap-x-4 gap-y-10">
+    <div className="py-8 flex flex-wrap justify-center gap-x-4 gap-y-10">
       {items.map((product) => (
         <ProductView
           key={product.id}
