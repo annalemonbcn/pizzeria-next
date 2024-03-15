@@ -13,14 +13,14 @@ const Header = () => {
 
   return (
     <header
-      className={`w-screen px-6 md:px-14 ${isHome ? "fixed" : "relative" } top-10 flex items-center ${
+      className={`w-screen px-6 md:px-14 ${isHome ? "fixed" : "relative" } top-10 flex items-start lg:items-center ${
         isHome ? "text-white" : "text-base"
       } bg-transparent z-10`}
     >
       <div className="hidden lg:w-1/3 lg:flex justify-start">
         <Navbar />
       </div>
-      <div className="w-2/3 lg:w-1/3 flex flex-col lg:justify-center">
+      <div className="w-2/3 lg:w-1/3 flex flex-col lg:flex-row lg:justify-center">
         <Link href={"/"}>
           <Image
             src={isHome ? "/logo_white.png" : "/logo_black.png"}

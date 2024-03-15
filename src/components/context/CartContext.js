@@ -8,6 +8,7 @@ export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState(mockCart);
   const [cartLength, setCartLength] = useState(0);
 
   /**

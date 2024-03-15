@@ -5,7 +5,6 @@ import ProductsList from "@/components/products/ProductList";
 import { removeUnderscores } from "@/app/utils/func";
 import StyledH2 from "@/components/utils/headings/StyledH2";
 
-// TODO: ??
 export function generateStaticParams() {
   return [
     { category: "all" },
@@ -18,7 +17,7 @@ export const revalidate = 3600;
 
 export async function generateMetadata({ params, searchParams }, parent) {
   return {
-    title: `La Mamma Pizza - Hungry? Here's a list of ${removeUnderscores(
+    title: `Pizzalicious - Hungry? Here's a list of ${removeUnderscores(
       params.category
     )} pizzas`,
   };
